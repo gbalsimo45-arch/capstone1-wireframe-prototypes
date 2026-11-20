@@ -1,0 +1,1981 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Capstone 1 Wireframe Prototypes</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f4f6fa;
+    color: #263247;
+}
+
+.app {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* SIDEBAR */
+
+.sidebar {
+    width: 260px;
+    background: #17243a;
+    color: white;
+    padding: 24px 16px;
+    flex-shrink: 0;
+}
+
+.logo {
+    font-size: 21px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.sidebar-subtitle {
+    font-size: 12px;
+    color: #aab8cb;
+    margin-bottom: 30px;
+}
+
+.nav-title {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #95a4ba;
+    margin: 20px 10px 10px;
+    letter-spacing: 1px;
+}
+
+.nav-btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: #d5deea;
+    text-align: left;
+    cursor: pointer;
+    margin-bottom: 5px;
+    font-size: 13px;
+    transition: .2s;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background: #294361;
+    color: white;
+}
+
+.nav-btn.active {
+    border-left: 3px solid #65a9ff;
+}
+
+.proposal-btn {
+    font-weight: bold;
+}
+
+/* MAIN */
+
+.main {
+    flex: 1;
+    min-width: 0;
+}
+
+.topbar {
+    height: 70px;
+    background: white;
+    border-bottom: 1px solid #e5eaf1;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 30px;
+}
+
+.topbar-title {
+    font-size: 14px;
+    color: #607086;
+}
+
+.user {
+    background: #e7efff;
+    color: #305d9c;
+    padding: 9px 13px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.content {
+    padding: 28px;
+    max-width: 1500px;
+    margin: auto;
+}
+
+.page-title {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.page-description {
+    color: #7a8798;
+    font-size: 13px;
+    margin-bottom: 25px;
+}
+
+.figure-label {
+    display: inline-block;
+    background: #e8efff;
+    color: #315b9b;
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 12px;
+    margin-bottom: 14px;
+}
+
+/* CARDS */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e8edf3;
+    box-shadow: 0 3px 12px rgba(20,40,70,.03);
+}
+
+.card-label {
+    color: #8290a2;
+    font-size: 12px;
+    margin-bottom: 12px;
+}
+
+.card-value {
+    font-size: 27px;
+    font-weight: bold;
+    color: #24344d;
+}
+
+.card-note {
+    font-size: 11px;
+    color: #8996a7;
+    margin-top: 9px;
+}
+
+.panel {
+    background: white;
+    border: 1px solid #e8edf3;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.panel-title {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 18px;
+}
+
+.panel-subtitle {
+    font-size: 12px;
+    color: #8996a7;
+    margin-top: -12px;
+    margin-bottom: 18px;
+}
+
+.two-column {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 18px;
+}
+
+.three-column {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+.primary-btn {
+    background: #376ed0;
+    color: white;
+    border: none;
+    padding: 11px 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.primary-btn:hover {
+    background: #285ab1;
+}
+
+.secondary-btn {
+    background: #edf2f8;
+    color: #43546c;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.green-btn {
+    background: #14815c;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    border: 1px solid #dce3ed;
+    padding: 11px;
+    border-radius: 8px;
+    outline: none;
+    background: white;
+    color: #263247;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: #5d92e5;
+}
+
+.form-group {
+    margin-bottom: 14px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 12px;
+    color: #65748a;
+    margin-bottom: 7px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.table-wrap {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 500px;
+}
+
+th {
+    background: #f7f9fc;
+    color: #7c899a;
+    font-size: 11px;
+    text-align: left;
+    padding: 13px;
+    font-weight: 600;
+}
+
+td {
+    padding: 13px;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 12px;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-weight: bold;
+}
+
+.pending {
+    background: #fff3da;
+    color: #ad7818;
+}
+
+.approved,
+.completed,
+.synced {
+    background: #e3f7eb;
+    color: #16804e;
+}
+
+.processing,
+.scheduled {
+    background: #e5efff;
+    color: #3868b2;
+}
+
+.rejected,
+.error {
+    background: #ffe7e7;
+    color: #bf4444;
+}
+
+.ready {
+    background: #f0eaff;
+    color: #8057b8;
+}
+
+.search {
+    max-width: 280px;
+    margin-bottom: 15px;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.small-btn {
+    border: none;
+    background: #eef3fa;
+    padding: 7px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #45576e;
+    font-size: 11px;
+}
+
+.small-btn:hover {
+    background: #dce8f8;
+}
+
+.alert {
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    font-size: 12px;
+}
+
+.alert-warning {
+    background: #fff5e3;
+    color: #95651c;
+}
+
+.alert-success {
+    background: #e8f7ee;
+    color: #247b4d;
+}
+
+.alert-info {
+    background: #e9f2ff;
+    color: #3964a1;
+}
+
+/* CHARTS */
+
+.chart {
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    gap: 12px;
+    padding: 20px 8px 0;
+    border-bottom: 1px solid #e8edf3;
+}
+
+.bar-column {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+.bar {
+    width: 75%;
+    max-width: 55px;
+    background: linear-gradient(180, #72a7f5, #386fcb);
+    border-radius: 7px 7px 0 0;
+    min-height: 5px;
+    position: relative;
+}
+
+.bar.green {
+    background: linear-gradient(180, #67cba0, #14815c);
+}
+
+.bar.orange {
+    background: linear-gradient(180, #ffc878, #e79b39);
+}
+
+.bar-label {
+    font-size: 10px;
+    color: #8290a2;
+    text-align: center;
+}
+
+.bar-value {
+    font-size: 10px;
+    color: #64748b;
+}
+
+.progress {
+    height: 9px;
+    background: #edf1f6;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 9px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #4c87dc;
+    border-radius: 20px;
+}
+
+.product-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf0f5;
+    font-size: 12px;
+}
+
+.product-row:last-child {
+    border-bottom: none;
+}
+
+.product-name {
+    font-weight: bold;
+}
+
+.product-meta {
+    color: #8491a2;
+    font-size: 11px;
+    margin-top: 4px;
+}
+
+/* HEALTH / SYNC */
+
+.sync-status {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #2bb576;
+}
+
+.dot.offline {
+    background: #e3a236;
+}
+
+.footer {
+    padding: 20px;
+    text-align: center;
+    color: #a0aabb;
+    font-size: 11px;
+}
+
+/* FIGURE NAVIGATION */
+
+.figure-nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.figure-nav button {
+    border: 1px solid #dce4ef;
+    background: white;
+    color: #53647a;
+    padding: 8px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.figure-nav button.active {
+    background: #376ed0;
+    color: white;
+    border-color: #376ed0;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.figure {
+    display: none;
+}
+
+.figure.active {
+    display: block;
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #17243a;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-size: 13px;
+    box-shadow: 0 6px 25px rgba(0,0,0,.2);
+    display: none;
+    z-index: 999;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 1000px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .two-column {
+        grid-template-columns: 1fr;
+    }
+
+    .three-column {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 700px) {
+    .app {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+    }
+
+    .content {
+        padding: 15px;
+    }
+
+    .topbar {
+        padding: 0 15px;
+    }
+
+    .grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+
+    <div class="logo">CAPSTONE 1</div>
+    <div class="sidebar-subtitle">Information System Wireframes</div>
+
+    <div class="nav-title">Proposal 1 · Barangay</div>
+
+    <button class="nav-btn proposal-btn active" onclick="showFigure(1)">
+        Figure 1 – Resident Dashboard
+    </button>
+
+    <button class="nav-btn" onclick="showFigure(2)">
+        Figure 2 – Admin Dashboard
+    </button>
+
+    <div class="nav-title">Proposal 2 · Business</div>
+
+    <button class="nav-btn proposal-btn" onclick="showFigure(3)">
+        Figure 3 – Store Dashboard
+    </button>
+
+    <button class="nav-btn" onclick="showFigure(4)">
+        Figure 4 – Inventory Prediction
+    </button>
+
+    <button class="nav-btn" onclick="showFigure(5)">
+        Figure 5 – Sales Analytics
+    </button>
+
+    <div class="nav-title">Proposal 3 · Healthcare</div>
+
+    <button class="nav-btn proposal-btn" onclick="showFigure(6)">
+        Figure 6 – RHU Dashboard
+    </button>
+
+    <button class="nav-btn" onclick="showFigure(7)">
+        Figure 7 – Patient Records
+    </button>
+
+    <button class="nav-btn" onclick="showFigure(8)">
+        Figure 8 – Appointments
+    </button>
+
+    <button class="nav-btn" onclick="showFigure(9)">
+        Figure 9 – Offline Sync
+    </button>
+
+</aside>
+
+<!-- MAIN CONTENT -->
+<main class="main">
+
+    <header class="topbar">
+        <div class="topbar-title">Capstone 1 / Wireframe Prototype</div>
+        <div class="user">IS STUDENT</div>
+    </header>
+
+    <div class="content">
+
+        <div id="figureLabel" class="figure-label">
+            Figure 1
+        </div>
+
+        <h1 id="pageTitle" class="page-title">
+            Resident Dashboard
+        </h1>
+
+        <p id="pageDescription" class="page-description">
+            Barangay document request portal
+        </p>
+
+        <!-- FIGURE 1 -->
+        <section class="figure active" id="f1">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">My Requests</div>
+                    <div class="card-value">3</div>
+                    <div class="card-note">All applications</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Pending</div>
+                    <div class="card-value">1</div>
+                    <div class="card-note">Under review</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Approved</div>
+                    <div class="card-value">1</div>
+                    <div class="card-note">Approved requests</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Ready for Release</div>
+                    <div class="card-value">1</div>
+                    <div class="card-note">Available for pickup</div>
+                </div>
+
+            </div>
+
+            <div class="two-column">
+
+                <div class="panel">
+
+                    <h3 class="panel-title">New Document Request</h3>
+
+                    <form onsubmit="submitBarangay(event)">
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input id="brName" required placeholder="Enter your full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Document Type</label>
+                            <select id="brDocument" required>
+                                <option value="">Select document</option>
+                                <option>Barangay Clearance</option>
+                                <option>Certificate of Residency</option>
+                                <option>Certificate of Indigency</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Purpose</label>
+                            <input id="brPurpose" required placeholder="Employment, scholarship, etc.">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input id="brAddress" required placeholder="Enter barangay address">
+                        </div>
+
+                        <button class="primary-btn" type="submit">
+                            Submit Request
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Request Tracking</h3>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">BR-001</div>
+                            <div class="product-meta">Barangay Clearance</div>
+                        </div>
+                        <span class="status pending">Pending</span>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">BR-002</div>
+                            <div class="product-meta">Certificate of Residency</div>
+                        </div>
+                        <span class="status approved">Approved</span>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">BR-003</div>
+                            <div class="product-meta">Certificate of Indigency</div>
+                        </div>
+                        <span class="status ready">Ready for Release</span>
+                    </div>
+
+                    <br>
+
+                    <div class="alert alert-info">
+                        Your applications can be monitored here.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 2 -->
+        <section class="figure" id="f2">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">Pending Requests</div>
+                    <div class="card-value">24</div>
+                    <div class="card-note">For verification</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Approved</div>
+                    <div class="card-value">18</div>
+                    <div class="card-note">Approved applications</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Released</div>
+                    <div class="card-value">35</div>
+                    <div class="card-note">Completed requests</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Today's Queue</div>
+                    <div class="card-value">12</div>
+                    <div class="card-note">Residents to be served</div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Document Request Management</h3>
+
+                <input class="search" oninput="filterTable(this,'brTable')" placeholder="Search requests...">
+
+                <div class="table-wrap">
+                    <table id="brTable">
+                        <thead>
+                            <tr>
+                                <th>Request ID</th>
+                                <th>Resident</th>
+                                <th>Document</th>
+                                <th>Purpose</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>BR-001</td>
+                                <td>Juan Dela Cruz</td>
+                                <td>Clearance</td>
+                                <td>Employment</td>
+                                <td><span class="status pending">Pending</span></td>
+                                <td>
+                                    <button class="small-btn" onclick="changeStatus(this,'Approved')">Approve</button>
+                                    <button class="small-btn" onclick="changeStatus(this,'Rejected')">Reject</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>BR-002</td>
+                                <td>Maria Santos</td>
+                                <td>Residency</td>
+                                <td>School</td>
+                                <td><span class="status approved">Approved</span></td>
+                                <td>
+                                    <button class="small-btn" onclick="changeStatus(this,'Ready for Release')">Release</button>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <td>BR-003</td>
+                                <td>Pedro Reyes</td>
+                                <td>Indigency</td>
+                                <td>Assistance</td>
+                                <td><span class="status processing">Processing</span></td>
+                                <td>
+                                    <button class="small-btn" onclick="changeStatus(this,'Approved')">Approve</button>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+
+            <div class="panel">
+                <h3 class="panel-title">Processing Summary</h3>
+
+                <div class="product-row">
+                    Pending <strong>24 applications</strong>
+                </div>
+
+                <div class="product-row">
+                    Approved <strong>18 applications</strong>
+                </div>
+
+                <div class="product-row">
+                    Released <strong>35 documents</strong>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- FIGURE 3 -->
+        <section class="figure" id="f3">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">Today's Sales</div>
+                    <div class="card-value">₱3,850</div>
+                    <div class="card-note">Sample sales total</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Total Products</div>
+                    <div class="card-value">126</div>
+                    <div class="card-note">Registered products</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Low Stock</div>
+                    <div class="card-value">8</div>
+                    <div class="card-note">Needs monitoring</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Restock Suggestions</div>
+                    <div class="card-value">5</div>
+                    <div class="card-note">Products to reorder</div>
+                </div>
+
+            </div>
+
+            <div class="two-column">
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Quick Actions</h3>
+
+                    <div class="actions">
+                        <button class="primary-btn" onclick="showToast('New sale interface selected')">New Sale</button>
+                        <button class="secondary-btn" onclick="showToast('Add stock interface selected')">Add Stock</button>
+                        <button class="secondary-btn" onclick="showFigure(5)">View Analytics</button>
+                        <button class="secondary-btn" onclick="showFigure(4)">Inventory</button>
+                    </div>
+
+                    <h3 class="panel-title">Weekly Sales Overview</h3>
+
+                    <div class="chart">
+                        <div class="bar-column">
+                            <div class="bar-value">450</div>
+                            <div class="bar" style="height:40%"></div>
+                            <div class="bar-label">Mon</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">620</div>
+                            <div class="bar" style="height:58%"></div>
+                            <div class="bar-label">Tue</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">580</div>
+                            <div class="bar" style="height:52%"></div>
+                            <div class="bar-label">Wed</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">850</div>
+                            <div class="bar" style="height:82%"></div>
+                            <div class="bar-label">Thu</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">700</div>
+                            <div class="bar" style="height:66%"></div>
+                            <div class="bar-label">Fri</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">950</div>
+                            <div class="bar green" style="height:95%"></div>
+                            <div class="bar-label">Sat</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Low Stock Alert</h3>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Coffee 3-in-1</div>
+                            <div class="product-meta">Minimum: 10</div>
+                        </div>
+                        <span class="status pending">5 left</span>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Instant Noodles</div>
+                            <div class="product-meta">Minimum: 10</div>
+                        </div>
+                        <span class="status pending">4 left</span>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Canned Sardines</div>
+                            <div class="product-meta">Minimum: 10</div>
+                        </div>
+                        <span class="status pending">3 left</span>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        Some products are below the minimum stock level.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 4 -->
+        <section class="figure" id="f4">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">Current Inventory</div>
+                    <div class="card-value">12 pcs</div>
+                    <div class="card-note">Instant Noodles</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Average Daily Sales</div>
+                    <div class="card-value">5 pcs</div>
+                    <div class="card-note">Based on sample data</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Estimated Stock Duration</div>
+                    <div class="card-value">2–3 Days</div>
+                    <div class="card-note">Estimated only</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Suggested Restock</div>
+                    <div class="card-value">30 pcs</div>
+                    <div class="card-note">Sample recommendation</div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Product Stock Prediction</h3>
+
+                <div class="form-group">
+                    <label>Select Product</label>
+                    <select onchange="updatePrediction(this)">
+                        <option value="Instant Noodles">Instant Noodles</option>
+                        <option value="Coffee 3-in-1">Coffee 3-in-1</option>
+                        <option value="Canned Sardines">Canned Sardines</option>
+                    </select>
+                </div>
+
+                <div class="alert alert-warning" id="predictionAlert">
+                    Stock may run low within 2–3 days based on the sample sales rate.
+                </div>
+
+                <div class="two-column">
+
+                    <div class="card">
+                        <div class="card-label">Current Stock</div>
+                        <div class="card-value" id="predStock">12 pcs</div>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-label">Suggested Order</div>
+                        <div class="card-value" id="predOrder">30 pcs</div>
+                    </div>
+
+                </div>
+
+                <br>
+
+                <button class="primary-btn" onclick="showToast('Restock action recorded in this prototype.')">
+                    Add Stock
+                </button>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Stock Level Monitoring</h3>
+
+                <div class="product-row">
+                    <span>Instant Noodles</span>
+                    <strong>12 pcs</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill" style="width:30%"></div>
+                </div>
+
+                <div class="product-row">
+                    <span>Coffee 3-in-1</span>
+                    <strong>5 pcs</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill" style="width:15%;background:#e8a23c"></div>
+                </div>
+
+                <div class="product-row">
+                    <span>Canned Sardines</span>
+                    <strong>3 pcs</strong>
+                </div>
+
+                <div class="progress">
+                    <div class="progress-fill" style="width:10%;background:#e16b6b"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 5 -->
+        <section class="figure" id="f5">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">Total Sales</div>
+                    <div class="card-value">₱28,450</div>
+                    <div class="card-note">Selected period</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Transactions</div>
+                    <div class="card-value">186</div>
+                    <div class="card-note">Sample transactions</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Top Product</div>
+                    <div class="card-value">Noodles</div>
+                    <div class="card-note">Best-selling item</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Items Sold</div>
+                    <div class="card-value">420</div>
+                    <div class="card-note">Sample quantity</div>
+                </div>
+
+            </div>
+
+            <div class="two-column">
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Sales Analytics</h3>
+                    <p class="panel-subtitle">Sample sales amounts by day</p>
+
+                    <div class="chart">
+
+                        <div class="bar-column">
+                            <div class="bar-value">3.5k</div>
+                            <div class="bar" style="height:35%"></div>
+                            <div class="bar-label">Mon</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">5.2k</div>
+                            <div class="bar" style="height:52%"></div>
+                            <div class="bar-label">Tue</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">4.1k</div>
+                            <div class="bar" style="height:41%"></div>
+                            <div class="bar-label">Wed</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">6.8k</div>
+                            <div class="bar green" style="height:68%"></div>
+                            <div class="bar-label">Thu</div>
+                        </div>
+
+                        <div class="bar-column">
+                            <div class="bar-value">5.4k</div>
+                            <div class="bar" style="height:54%"></div>
+                            <div class="bar-label">Fri</div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Best-Selling Products</h3>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Instant Noodles</div>
+                            <div class="product-meta">120 units sold</div>
+                        </div>
+                        <strong>120</strong>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Coffee Sachets</div>
+                            <div class="product-meta">95 units sold</div>
+                        </div>
+                        <strong>95</strong>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Canned Goods</div>
+                            <div class="product-meta">72 units sold</div>
+                        </div>
+                        <strong>72</strong>
+                    </div>
+
+                    <div class="product-row">
+                        <div>
+                            <div class="product-name">Biscuits</div>
+                            <div class="product-meta">60 units sold</div>
+                        </div>
+                        <strong>60</strong>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Analytics Insight</h3>
+
+                <div class="alert alert-success">
+                    Instant noodles are among the best-selling products. Consider checking inventory regularly and replenishing stocks before they reach the minimum stock level.
+                </div>
+
+                <button class="primary-btn" onclick="showToast('Analytics report generated in demo mode.')">
+                    Generate Sales Report
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 6 -->
+        <section class="figure" id="f6">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">Total Patients</div>
+                    <div class="card-value">258</div>
+                    <div class="card-note">Sample registered patients</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Today's Appointments</div>
+                    <div class="card-value">18</div>
+                    <div class="card-note">Scheduled today</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Completed Visits</div>
+                    <div class="card-value">12</div>
+                    <div class="card-note">Today's visits</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Waiting Patients</div>
+                    <div class="card-value">6</div>
+                    <div class="card-note">Queue</div>
+                </div>
+
+            </div>
+
+            <div class="two-column">
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Quick Actions</h3>
+
+                    <div class="actions">
+                        <button class="primary-btn" onclick="showFigure(7)">Register Patient</button>
+                        <button class="secondary-btn" onclick="showFigure(8)">Appointments</button>
+                        <button class="secondary-btn" onclick="showFigure(7)">Patient Records</button>
+                        <button class="secondary-btn" onclick="showFigure(9)">Sync Records</button>
+                    </div>
+
+                    <h3 class="panel-title">Today's Patient Visits</h3>
+
+                    <div class="product-row">
+                        <span>Patient #001</span>
+                        <span class="status pending">Waiting</span>
+                    </div>
+
+                    <div class="product-row">
+                        <span>Patient #002</span>
+                        <span class="status completed">Completed</span>
+                    </div>
+
+                    <div class="product-row">
+                        <span>Patient #003</span>
+                        <span class="status processing">Scheduled</span>
+                    </div>
+
+                </div>
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Appointment Summary</h3>
+
+                    <div class="product-row">
+                        <span>General Consultation</span>
+                        <strong>10</strong>
+                    </div>
+
+                    <div class="product-row">
+                        <span>Immunization</span>
+                        <strong>5</strong>
+                    </div>
+
+                    <div class="product-row">
+                        <span>Maternal Care</span>
+                        <strong>3</strong>
+                    </div>
+
+                    <div class="alert alert-info">
+                        Summary data shown is for wireframe demonstration only.
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 7 -->
+        <section class="figure" id="f7">
+
+            <div class="panel">
+
+                <h3 class="panel-title">Patient Registration</h3>
+
+                <form onsubmit="submitPatient(event)">
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label>Patient ID</label>
+                            <input id="patientID" value="RHU-2026-001" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Full Name</label>
+                            <input id="patientName" required placeholder="Enter patient full name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Age</label>
+                            <input id="patientAge" type="number" min="0" max="120" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Sex</label>
+                            <select id="patientSex" required>
+                                <option value="">Select sex</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input id="patientAddress" required placeholder="Enter address">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Contact Number</label>
+                            <input id="patientContact" placeholder="09XXXXXXXXX">
+                        </div>
+
+                    </div>
+
+                    <div class="form-group">
+                        <label>Visit Notes</label>
+                        <textarea id="patientNotes" rows="3" placeholder="Enter notes for authorized medical personnel"></textarea>
+                    </div>
+
+                    <button type="submit" class="primary-btn">
+                        Save Patient Record
+                    </button>
+
+                </form>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Patient Record Search</h3>
+
+                <input class="search" oninput="filterTable(this,'patientTable')" placeholder="Search patient records...">
+
+                <div class="table-wrap">
+
+                    <table id="patientTable">
+
+                        <thead>
+                            <tr>
+                                <th>Patient ID</th>
+                                <th>Patient Name</th>
+                                <th>Age</th>
+                                <th>Sex</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>RHU-001</td>
+                                <td>Juan Dela Cruz</td>
+                                <td>35</td>
+                                <td>Male</td>
+                                <td><button class="small-btn" onclick="showToast('Demo patient record opened.')">View</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>RHU-002</td>
+                                <td>Maria Santos</td>
+                                <td>28</td>
+                                <td>Female</td>
+                                <td><button class="small-btn" onclick="showToast('Demo patient record opened.')">View</button></td>
+                            </tr>
+
+                            <tr>
+                                <td>RHU-003</td>
+                                <td>Pedro Reyes</td>
+                                <td>42</td>
+                                <td>Male</td>
+                                <td><button class="small-btn" onclick="showToast('Demo patient record opened.')">View</button></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 8 -->
+        <section class="figure" id="f8">
+
+            <div class="two-column">
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Schedule Appointment</h3>
+
+                    <form onsubmit="submitAppointment(event)">
+
+                        <div class="form-group">
+                            <label>Patient Name</label>
+                            <input id="appointmentName" required placeholder="Enter patient name">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Appointment Date</label>
+                            <input id="appointmentDate" type="date" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Appointment Time</label>
+                            <input id="appointmentTime" type="time" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Service Type</label>
+                            <select id="appointmentType" required>
+                                <option value="">Select service</option>
+                                <option>General Consultation</option>
+                                <option>Immunization</option>
+                                <option>Maternal Care</option>
+                                <option>Health Checkup</option>
+                            </select>
+                        </div>
+
+                        <button class="primary-btn" type="submit">
+                            Save Appointment
+                        </button>
+
+                    </form>
+
+                </div>
+
+                <div class="panel">
+
+                    <h3 class="panel-title">Appointment Overview</h3>
+
+                    <div class="card">
+                        <div class="card-label">Scheduled Today</div>
+                        <div class="card-value" id="appointmentCount">3</div>
+                    </div>
+
+                    <br>
+
+                    <div class="product-row">
+                        <span>Waiting</span>
+                        <span class="status pending">1</span>
+                    </div>
+
+                    <div class="product-row">
+                        <span>Completed</span>
+                        <span class="status completed">1</span>
+                    </div>
+
+                    <div class="product-row">
+                        <span>Scheduled</span>
+                        <span class="status processing">1</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Appointment List</h3>
+
+                <input class="search" oninput="filterTable(this,'appointmentTable')" placeholder="Search appointments...">
+
+                <div class="table-wrap">
+
+                    <table id="appointmentTable">
+
+                        <thead>
+                            <tr>
+                                <th>Patient Name</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Service</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>Juan Dela Cruz</td>
+                                <td>Nov 25, 2026</td>
+                                <td>9:00 AM</td>
+                                <td>Consultation</td>
+                                <td><span class="status pending">Waiting</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>Nov 25, 2026</td>
+                                <td>9:30 AM</td>
+                                <td>Immunization</td>
+                                <td><span class="status completed">Completed</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>Pedro Reyes</td>
+                                <td>Nov 25, 2026</td>
+                                <td>10:00 AM</td>
+                                <td>Health Checkup</td>
+                                <td><span class="status processing">Scheduled</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FIGURE 9 -->
+        <section class="figure" id="f9">
+
+            <div class="grid">
+
+                <div class="card">
+                    <div class="card-label">Pending Records</div>
+                    <div class="card-value" id="pendingSync">4</div>
+                    <div class="card-note">Waiting for connection</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Synchronized</div>
+                    <div class="card-value" id="syncedCount">125</div>
+                    <div class="card-note">Saved centrally</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Sync Errors</div>
+                    <div class="card-value" id="syncErrors">0</div>
+                    <div class="card-note">Sample error count</div>
+                </div>
+
+                <div class="card">
+                    <div class="card-label">Connection</div>
+                    <div class="card-value" id="connectionText">Online</div>
+                    <div class="card-note">Connection status</div>
+                </div>
+
+            </div>
+
+            <div class="panel">
+
+                <h3 class="panel-title">Synchronization Status</h3>
+
+                <div class="alert alert-success" id="syncAlert">
+                    <div class="sync-status">
+                        <span class="dot" id="syncDot"></span>
+                        <span id="syncStatusText">Online – Data synchronized</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="secondary-btn" onclick="toggleOffline()">
+                        Toggle Offline / Online Demo
+                    </button>
+
+                    <button class="primary-btn green-btn" onclick="syncRecords()">
+                        Synchronize Data
+                    </button>
+                </div>
+
+                <div class="panel-title">Pending Synchronization</div>
+
+                <div class="table-wrap">
+
+                    <table id="syncTable">
+
+                        <thead>
+                            <tr>
+                                <th>Record ID</th>
+                                <th>Record Type</th>
+                                <th>Time Saved</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+
+                            <tr>
+                                <td>REC-126</td>
+                                <td>Patient Record</td>
+                                <td>10:15 AM</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>REC-127</td>
+                                <td>Appointment</td>
+                                <td>10:20 AM</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>REC-128</td>
+                                <td>Patient Record</td>
+                                <td>10:25 AM</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>REC-129</td>
+                                <td>Appointment</td>
+                                <td>10:30 AM</td>
+                                <td><span class="status pending">Pending</span></td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                <br>
+
+                <div class="alert alert-info">
+                    In a real system, locally saved patient records will be synchronized with the central database when internet connectivity is restored.
+                </div>
+
+            </div>
+
+        </section>
+
+        <div class="footer">
+            Capstone 1 · Information Systems Wireframe Prototype · Academic Demonstration
+        </div>
+
+    </div>
+
+</main>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// FIGURE NAVIGATION
+
+const titles = {
+    1: "Resident Dashboard",
+    2: "Barangay Administrative Dashboard",
+    3: "Smart Store Owner Dashboard",
+    4: "Inventory Monitoring and Stock Prediction",
+    5: "Sales Analytics and Product Performance",
+    6: "Rural Health Unit Dashboard",
+    7: "Patient Registration and Record Management",
+    8: "Medical Appointment Management",
+    9: "Offline Data Synchronization"
+};
+
+const descriptions = {
+    1: "Barangay document request portal",
+    2: "Barangay document request and processing management",
+    3: "Small retail sales and inventory overview",
+    4: "Stock monitoring and estimated restocking recommendations",
+    5: "Sales trends and product performance analytics",
+    6: "Rural health patient and appointment overview",
+    7: "Patient registration and records interface",
+    8: "Healthcare appointment scheduling and monitoring",
+    9: "Offline records and synchronization monitoring"
+};
+
+function showFigure(number) {
+
+    document.querySelectorAll(".figure").forEach(section => {
+        section.classList.remove("active");
+    });
+
+    document.getElementById("f" + number).classList.add("active");
+
+    document.getElementById("pageTitle").textContent = titles[number];
+    document.getElementById("pageDescription").textContent = descriptions[number];
+    document.getElementById("figureLabel").textContent = "Figure " + number;
+
+    document.querySelectorAll(".nav-btn").forEach(btn => {
+        btn.classList.remove("active");
+    });
+
+    const buttons = document.querySelectorAll(".nav-btn");
+    buttons[number - 1].classList.add("active");
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+// TOAST MESSAGE
+
+function showToast(message) {
+
+    const toast = document.getElementById("toast");
+
+    toast.textContent = message;
+    toast.style.display = "block";
+
+    setTimeout(() => {
+        toast.style.display = "none";
+    }, 3000);
+}
+
+// BARANGAY REQUEST DEMO
+
+let requestNumber = 4;
+
+function submitBarangay(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("brName").value;
+    const documentType = document.getElementById("brDocument").value;
+
+    requestNumber++;
+
+    showToast(
+        "Demo request BR-" + String(requestNumber).padStart(3, "0") +
+        " submitted for " + name + " – " + documentType
+    );
+
+    event.target.reset();
+}
+
+// ADMIN STATUS DEMO
+
+function changeStatus(button, status) {
+
+    const row = button.closest("tr");
+    const statusCell = row.cells[4];
+
+    let className = "processing";
+
+    if (status === "Approved") className = "approved";
+    if (status === "Rejected") className = "rejected";
+    if (status === "Ready for Release") className = "ready";
+
+    statusCell.innerHTML =
+        '<span class="status ' + className + '">' + status + '</span>';
+
+    showToast("Request status updated to " + status);
+}
+
+// TABLE SEARCH
+
+function filterTable(input, tableID) {
+
+    const query = input.value.toLowerCase();
+    const table = document.getElementById(tableID);
+    const rows = table.querySelectorAll("tbody tr");
+
+    rows.forEach(row => {
+        const text = row.textContent.toLowerCase();
+        row.style.display = text.includes(query) ? "" : "none";
+    });
+}
+
+// INVENTORY DEMO
+
+function updatePrediction(select) {
+
+    const product = select.value;
+
+    const stock = {
+        "Instant Noodles": "12 pcs",
+        "Coffee 3-in-1": "5 pcs",
+        "Canned Sardines": "3 pcs"
+    };
+
+    const order = {
+        "Instant Noodles": "30 pcs",
+        "Coffee 3-in-1": "40 pcs",
+        "Canned Sardines": "25 pcs"
+    };
+
+    document.getElementById("predStock").textContent = stock[product];
+    document.getElementById("predOrder").textContent = order[product];
+
+    document.getElementById("predictionAlert").textContent =
+        product + " selected. Sample recommendation is " +
+        order[product] + ".";
+}
+
+// PATIENT REGISTRATION DEMO
+
+function submitPatient(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("patientName").value;
+
+    showToast("Demo patient record for " + name + " submitted.");
+
+    event.target.reset();
+}
+
+// APPOINTMENT DEMO
+
+function submitAppointment(event) {
+
+    event.preventDefault();
+
+    const name = document.getElementById("appointmentName").value;
+
+    let count = Number(document.getElementById("appointmentCount").textContent);
+
+    count++;
+
+    document.getElementById("appointmentCount").textContent = count;
+
+    showToast("Demo appointment for " + name + " saved.");
+
+    event.target.reset();
+}
+
+// OFFLINE MODE DEMO
+
+let isOffline = false;
+
+function toggleOffline() {
+
+    isOffline = !isOffline;
+
+    const statusText = document.getElementById("syncStatusText");
+    const dot = document.getElementById("syncDot");
+    const connectionText = document.getElementById("connectionText");
+    const alertBox = document.getElementById("syncAlert");
+
+    if (isOffline) {
+
+        statusText.textContent = "Offline – Records saved locally";
+        connectionText.textContent = "Offline";
+        dot.classList.add("offline");
+
+        alertBox.className = "alert alert-warning";
+
+        showToast("Offline mode demonstration enabled.");
+
+    } else {
+
+        statusText.textContent = "Online – Ready to synchronize";
+        connectionText.textContent = "Online";
+        dot.classList.remove("offline");
+
+        alertBox.className = "alert alert-success";
+
+        showToast("Online mode demonstration enabled.");
+    }
+}
+
+// SYNCHRONIZATION DEMO
+
+function syncRecords() {
+
+    if (isOffline) {
+
+        showToast("Cannot synchronize. Internet connection unavailable.");
+        return;
+    }
+
+    const pending = document.getElementById("pendingSync");
+    const synced = document.getElementById("syncedCount");
+
+    const pendingCount = Number(pending.textContent);
+
+    if (pendingCount <= 0) {
+
+        showToast("All records are already synchronized.");
+        return;
+    }
+
+    synced.textContent =
+        Number(synced.textContent) + pendingCount;
+
+    pending.textContent = "0";
+
+    const rows = document.querySelectorAll("#syncTable tbody tr");
+
+    rows.forEach(row => {
+
+        row.cells[3].innerHTML =
+            '<span class="status synced">Synchronized</span>';
+
+    });
+
+    document.getElementById("syncStatusText").textContent =
+        "Online – All records synchronized";
+
+    showToast("Demo synchronization completed.");
+}
+
+</script>
+
+</body>
+</html>
